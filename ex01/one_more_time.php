@@ -101,7 +101,17 @@
 			return false;
 		return strtotime("$num_month/$date[1]/$date[3] $date[4]");
 	}
-	$data = preg_split("/ /", $argv[1], -1, PREG_SPLIT_NO_EMPTY);
+	$data = preg_split("/( )/", $argv[1], -1, PREG_SPLIT_DELIM_CAPTURE);
+
+	if (count($data) != 9)
+		exit("Wrong Format\n");
+	$tmp = $data;
+	$data = array();
+	foreach ($tmp as $value) {
+		if ($value !== " ")
+			array_push($data, $value);
+	}
+
 	date_default_timezone_set('Europe/Paris');
 	if (($timestamp = valid_date($data)) !== false)
 		echo $timestamp."\n";

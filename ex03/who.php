@@ -7,12 +7,9 @@
         $array[$unpack['c']] = $unpack;
     }
     ksort($array);
-   	$array = array_slice($array, 1);
+    $array = array_slice($array, 1);
     foreach ($array as $entry){
     	if ($entry['e'] == 7)
-    		printf("%-8s %-8s  %s \n",
-    				substr(trim($entry['a'])), 0, 8),
-    				substr(trim($entry['c'])), 0, 8),
-    				date("M j H:i", $entry['f1']));
+    		printf("%-8s %-8s %s \n", substr(trim($entry['a']), 0, 8), substr(trim($entry['c']), 0, 8), date("M j H:i", $entry['f1']));
     }
 ?>
