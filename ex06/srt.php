@@ -23,8 +23,14 @@ if (!preg_match_all("#\d\n" . TIME . " --> " . TIME . "\n[a-zA-Z].*\n\n?#", $fil
 	exit();
 $matches = $matches[0];
 usort($matches, 'srttime');
+$i = 1;
 foreach ($matches as $match) {
-	echo $match;
+	$match = preg_split("/\n/", $match, -1, PREG_SPLIT_NO_EMPTY);
+	if ($i != count($matches))
+		echo $i . "\n" . $match[1] . "\n" . $match[2] . "\n\n";
+	else
+		echo $i . "\n" . $match[1] . "\n" . $match[2] . "\n";
+	$i++;
 }
 
 ?>
