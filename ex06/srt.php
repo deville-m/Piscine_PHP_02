@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-define("TIME", "\d{2}:\d{2}:\d{2},\d{3}");
+define("TIME", "\d{2}:[0-5][0-9]:[0-5][0-9],\d{3}");
 
 function srttime($s1, $s2)
 {
