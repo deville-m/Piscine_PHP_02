@@ -2,7 +2,7 @@
 <?php
     if ($argc != 2)
         return ;
-    if (($file = file_get_contents($argv[1])) == false)
+    if (($file = @file_get_contents($argv[1])) == false)
         exit ;
     $result = preg_replace_callback("|(<a )(.*?)(>)(.*?)(</a>)|si",
         function ($match)
