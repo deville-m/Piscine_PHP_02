@@ -18,7 +18,7 @@ while (($line = fgetcsv($fd, 0, ";")) !== FALSE) {
 	}
 }
 fclose($fd);
-if (fopen("php://stdin", "r") == FALSE)
+if (fopen("php://stdin", "r") === FALSE)
 	exit();
 while (true)
 {
